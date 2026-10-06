@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.fedorananin.keyboardlayout.customlayouts</string>
+	<key>CFBundleName</key>
+	<string>fedr.me keyboard</string>
+	<key>CFBundleVersion</key>
+	<string>1.91</string>
+	<key>KLInfo_EN (fedr.me)</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<true/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>com.fedorananin.keyboardlayout.customlayouts.en(fedr.me)</string>
+		<key>TISIntendedLanguage</key>
+		<string>en</string>
+	</dict>
+	<key>KLInfo_KA (fedr.me)</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<true/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>com.fedorananin.keyboardlayout.customlayouts.ka(fedr.me)</string>
+		<key>TISIntendedLanguage</key>
+		<string>ka</string>
+	</dict>
+	<key>KLInfo_RU (fedr.me)</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<true/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>com.fedorananin.keyboardlayout.customlayouts.ru(fedr.me)</string>
+		<key>TISIntendedLanguage</key>
+		<string>ru</string>
+	</dict>
+	<key>KLInfo_UA (fedr.me)</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<true/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>com.fedorananin.keyboardlayout.customlayouts.ua(fedr.me)</string>
+		<key>TISIntendedLanguage</key>
+		<string>uk</string>
+	</dict>
+</dict>
+</plist>
