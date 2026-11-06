@@ -32,11 +32,11 @@ To install the layouts for every user of the Mac, use the `/Library/Keyboard Lay
 
 ### 2. Log out and log in again
 
-Choose ** → Log Out** and log in again, or restart the Mac. Until then macOS may not see the new layouts.
+Choose **Apple menu → Log Out** and log in again, or restart the Mac. Until then macOS may not see the new layouts.
 
 ### 3. Add the layouts
 
-1. Open ** → System Settings → Keyboard**.
+1. Open **Apple menu → System Settings → Keyboard**.
 2. In the **Text Input** section click **Edit…** next to **Input Sources**.
 3. Click **+** under the list of input sources.
 4. Pick the language — **English**, **Russian**, **Ukrainian** or **Georgian** (the search field helps), select the layout with `(fedr.me)` in its name and click **Add**. If it is not listed under its language, look in **Others** at the end of the language list.

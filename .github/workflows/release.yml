@@ -9,20 +9,20 @@ permissions:
 
 jobs:
   release:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
       - name: Check that the tag matches the bundle version
         run: |
-          version=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "fedr.me keyboard.bundle/Contents/Info.plist")
+          version=$(python3 -c 'import plistlib; print(plistlib.load(open("fedr.me keyboard.bundle/Contents/Info.plist", "rb"))["CFBundleVersion"])')
           if [ "v$version" != "$GITHUB_REF_NAME" ]; then
             echo "::error::Tag $GITHUB_REF_NAME does not match CFBundleVersion $version"
             exit 1
           fi
 
       - name: Pack the bundle
-        run: ditto -c -k --norsrc --noextattr --keepParent "fedr.me keyboard.bundle" fedr.me-keyboard.zip
+        run: zip -r -X fedr.me-keyboard.zip "fedr.me keyboard.bundle"
 
       - name: Publish the release
         env:
