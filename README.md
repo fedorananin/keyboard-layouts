@@ -4,6 +4,8 @@
 
 Four keyboard layouts for macOS — English, Russian, Ukrainian and Georgian — that share one Option layer with typographic quotes and dashes, currency signs, math symbols, arrows and superscripts.
 
+**[⬇ Download the latest version](https://github.com/fedorananin/keyboard-layouts/releases/latest/download/fedr.me-keyboard.zip)** · [How to install](#installation)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="images/en-dark.png">
   <img src="images/en-light.png" alt="EN (fedr.me) keyboard layout" width="100%">
@@ -15,6 +17,66 @@ Four keyboard layouts for macOS — English, Russian, Ukrainian and Georgian —
 - **No dead keys.** Every combination types its symbol right away. The flip side: accented letters such as `é` or `ü` are not on the Option layer; hold the letter key to get them from the macOS accent popup.
 - **`@`, `#`, `$`, `[`, `]`, `{`, `}` without switching to English** in the Russian and Ukrainian layouts.
 - **Shortcuts work in every layout**: with <kbd>⌘</kbd> held, all four layouts behave as QWERTY.
+
+## Installation
+
+**[⬇ Download fedr.me-keyboard.zip](https://github.com/fedorananin/keyboard-layouts/releases/latest/download/fedr.me-keyboard.zip)** — the latest version, all four layouts in one bundle. Earlier versions and the list of changes are on the [Releases](https://github.com/fedorananin/keyboard-layouts/releases) page.
+
+### 1. Copy the bundle
+
+1. Unpack the downloaded archive (Safari usually does it by itself). You get `fedr.me keyboard.bundle`.
+2. In Finder choose **Go → Go to Folder…** (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>), type `~/Library/Keyboard Layouts` and press <kbd>Return</kbd>.
+3. Drag `fedr.me keyboard.bundle` into this folder. The bundle must lie directly in it, not in a subfolder. If an older version is there, choose **Replace**.
+
+To install the layouts for every user of the Mac, use the `/Library/Keyboard Layouts` folder instead; Finder will ask for an administrator password.
+
+### 2. Log out and log in again
+
+Choose ** → Log Out** and log in again, or restart the Mac. Until then macOS may not see the new layouts.
+
+### 3. Add the layouts
+
+1. Open ** → System Settings → Keyboard**.
+2. In the **Text Input** section click **Edit…** next to **Input Sources**.
+3. Click **+** under the list of input sources.
+4. Pick the language — **English**, **Russian**, **Ukrainian** or **Georgian** (the search field helps), select the layout with `(fedr.me)` in its name and click **Add**. If it is not listed under its language, look in **Others** at the end of the language list.
+5. Repeat for every layout you need. The bundle has all four, but you can add only some of them.
+6. Remove the standard layouts that the new ones replace (for example **ABC** or **Russian – PC**): select one and click **−**. If macOS refuses to remove the last built-in Latin layout, leave it.
+7. Turn on **Show Input menu in menu bar** to see the current layout's flag in the menu bar.
+
+On macOS 12 and earlier the same settings are in **System Preferences → Keyboard → Input Sources**.
+
+Switch layouts with the <kbd>🌐 fn</kbd> key or <kbd>⌃ Control</kbd> + <kbd>Space</kbd>, as with the standard ones.
+
+### Installing from Terminal
+
+```bash
+curl -fL -o /tmp/fedr.me-keyboard.zip https://github.com/fedorananin/keyboard-layouts/releases/latest/download/fedr.me-keyboard.zip
+```
+
+```bash
+mkdir -p ~/Library/Keyboard\ Layouts && ditto -x -k /tmp/fedr.me-keyboard.zip ~/Library/Keyboard\ Layouts/
+```
+
+Then log out, log in and add the layouts as described in step 3.
+
+### If the layouts do not appear
+
+- Check that the path is exactly `~/Library/Keyboard Layouts/fedr.me keyboard.bundle`, without an extra folder in between.
+- Restart the Mac: logging out is sometimes not enough.
+- Remove the download quarantine flag that the browser sets on the files, then log out and in again:
+
+  ```bash
+  xattr -dr com.apple.quarantine ~/Library/Keyboard\ Layouts/fedr.me\ keyboard.bundle
+  ```
+
+### Updating
+
+Download the new version and replace `fedr.me keyboard.bundle` in `~/Library/Keyboard Layouts` with it, then log out and in again. The layouts you added stay in the list.
+
+### Removing
+
+Remove the layouts in **System Settings → Keyboard → Text Input → Input Sources → Edit…**, delete `fedr.me keyboard.bundle` from `~/Library/Keyboard Layouts` and log out and in again.
 
 ## Layouts
 
@@ -52,38 +114,6 @@ Georgian QWERTY: seven more letters (`ჭ` `ღ` `თ` `შ` `ჟ` `ძ` `ჩ`) 
 </picture>
 
 The pictures show an ANSI keyboard. The additional key of ISO keyboards types `\` and `|` in EN and KA, `\` and `/` in RU, `ґ` and `Ґ` in UA, and has no Option symbols.
-
-## Installation
-
-All four layouts live in one bundle, `fedr.me keyboard.bundle`. You can install the bundle and then enable only the layouts you need.
-
-1. **Download the repository**: [Download ZIP](https://github.com/fedorananin/keyboard-layouts/archive/refs/heads/main.zip) and unpack it.
-2. **Copy the bundle.** In Finder choose **Go → Go to Folder…** (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>), enter `~/Library/Keyboard Layouts` and copy `fedr.me keyboard.bundle` into that folder.
-   To install the layouts for every user of the Mac, use `/Library/Keyboard Layouts` instead (an administrator password is required).
-3. **Log out and log in again** (or restart the Mac) so that macOS picks up the new layouts.
-4. **Enable the layouts.** Open **System Settings → Keyboard → Text Input → Input Sources → Edit…**, click **+**, choose a language (English, Russian, Ukrainian or Georgian), select the layout with `(fedr.me)` in its name and click **Add**. If a layout is not listed under its language, look in **Others** at the end of the language list.
-   On macOS 12 and earlier: **System Preferences → Keyboard → Input Sources**.
-5. **Remove the standard layouts** you no longer need with the **−** button in the same window. macOS keeps at least one built-in Latin layout (ABC, U.S. and so on) in the list, so one of them stays next to the new ones.
-
-The same from Terminal:
-
-```bash
-git clone https://github.com/fedorananin/keyboard-layouts.git
-```
-
-```bash
-mkdir -p ~/Library/Keyboard\ Layouts && cp -R "keyboard-layouts/fedr.me keyboard.bundle" ~/Library/Keyboard\ Layouts/
-```
-
-Then log out, log in and enable the layouts as described in step 4.
-
-### Updating
-
-Replace `fedr.me keyboard.bundle` in `~/Library/Keyboard Layouts` with the new version and log out and in again. The enabled layouts stay enabled.
-
-### Removing
-
-Remove the layouts in **System Settings → Keyboard → Text Input → Input Sources → Edit…**, delete `fedr.me keyboard.bundle` from `~/Library/Keyboard Layouts` and log out and in again.
 
 ## All symbols
 
@@ -261,10 +291,11 @@ In short:
 
 | Path | What it is |
 | --- | --- |
-| `fedr.me keyboard.bundle` | The bundle to install: four `.keylayout` files with their icons |
+| `fedr.me keyboard.bundle` | The layouts themselves: four `.keylayout` files with their icons |
 | `icons` | Source PNG files of the layout icons |
 | `images` | Pictures of the layouts for this page, light and dark |
 | `tools/generate.py` | Script that draws the pictures and builds the symbol tables from the `.keylayout` files |
+| `.github/workflows/release.yml` | Builds the release archive when a version tag is pushed |
 
 ## Editing the layouts
 
@@ -277,6 +308,14 @@ python3 tools/generate.py
 ```
 
 The script uses only the Python standard library and renders the pictures with headless Google Chrome.
+
+To publish a new version, raise `CFBundleVersion` in `fedr.me keyboard.bundle/Contents/Info.plist`, commit and push a tag with the same number:
+
+```bash
+git tag v1.92 && git push origin v1.92
+```
+
+GitHub Actions packs the bundle into `fedr.me-keyboard.zip` and creates the release; the download link in this README always points to the latest one.
 
 ## License
 

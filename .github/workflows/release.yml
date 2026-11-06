@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check that the tag matches the bundle version
+        run: |
+          version=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "fedr.me keyboard.bundle/Contents/Info.plist")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match CFBundleVersion $version"
+            exit 1
+          fi
+
+      - name: Pack the bundle
+        run: ditto -c -k --norsrc --noextattr --keepParent "fedr.me keyboard.bundle" fedr.me-keyboard.zip
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" fedr.me-keyboard.zip \
+            --title "fedr.me keyboard $GITHUB_REF_NAME" \
+            --notes-file .github/release-notes.md
